@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="org.climbingguide.main"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="org.climbingguide.main.MainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            
+            
+        </activity>
+        
+          	<activity android:name="org.climbingguide.gui.ShowAreasSearch" android:label="@string/app_name"/>
+          	<activity android:name="org.climbingguide.gui.ShowSectorsSearch" android:label="@string/app_name"/> 	
+          	<activity android:name="org.climbingguide.gui.ShowRoutesSearch" android:label="@string/app_name"/> 	
+          			
+        	<activity android:name="org.climbingguide.gui.ShowAreas" android:label="@string/app_name"/> 	
+          	<activity android:name="org.climbingguide.gui.ShowRoute" android:label="@string/app_name"/>
+          	<activity android:name="org.climbingguide.gui.ShowRoutes" android:label="@string/app_name"/>
+          	<activity android:name="org.climbingguide.gui.ShowSectors" android:label="@string/app_name"/>
+          	
+         	<activity android:name="org.climbingguide.main.MarekLauncher" android:label="@string/app_name"/>
+          	<activity android:name="org.climbingguide.main.LukasLauncher" android:label="@string/app_name"/>
+          
+    </application>
+
+</manifest>

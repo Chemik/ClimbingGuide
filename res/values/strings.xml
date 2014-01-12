@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ClimbingGuide-Projekt</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="sector">Sector</string>
+    <string name="update">Update</string> 
+    <string name="Update">Update</string> 
+    <string name="create">Create</string> 
+    <string name="search">Search</string>
+    <string name="search_hint">Search</string>      
+    <string name="large_text">Large Text</string>       
+    <string name="difficulty_">"Difficulty: "</string>
+    <string name="latitude_">"Latitude: "</string>
+    <string name="length_">"Length: "</string>     
+    <string name="bolts_">"Bolts: "</string>
+    <string name="longitude_">"Longitude: "</string>    
+   
+    <string name="action_update">Update</string>
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
+    <string name="newRoute">Vytvorit novu cestu</string>
+    <string name="newArea">Vytvorit novu oblast</string>
+    <string name="newSector">Vytvorit novy sektor</string>
+    <string name="routeName">Meno cesty:</string>
+    <string name="routeSector">Umiestnenie v sektore:</string>
+    <string name="routeDiff">Obtiaznost cesty:</string>
+    <string name="routeLength">Dlzka cesty (v metroch):</string>
+    <string name="routeBolts">Pocet isteni v ceste:</string>
+    <string name="send">Odoslat</string>
+    <string name="sectorName">Nazov sektora</string>
+    <string name="sectorArea">Umiestnenie v oblasti</string>
+    <string name="areaName">Nazov oblasti</string>
+
+    
+    <string-array name="nav_drawer_items">
+        <item >Areas</item>
+        <item >Sectors</item>
+        <item >Routes</item>
+        <item >Create</item>
+        <item >Update</item>
+        <item >GPS</item>
+    </string-array>
+    
+    <array name="nav_drawer_icons">
+        <item>@drawable/ic_home</item>
+        <item>@drawable/ic_people</item>
+        <item>@drawable/ic_photos</item>
+        <item>@drawable/ic_communities</item>
+        <item>@drawable/ic_pages</item>
+        <item>@drawable/ic_whats_hot</item>
+    </array>
+    
+       <string name="desc_list_item_icon">Item Icon</string>
+</resources>
