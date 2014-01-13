@@ -9,7 +9,9 @@ import org.climbingguide.dao.AreaDao;
 import org.climbingguide.dao.RouteDao;
 import org.climbingguide.dao.SectorDao;
 import org.climbingguide.gui.FragmentAreasAll;
-import org.climbingguide.gui.FragmentCreate;
+import org.climbingguide.gui.FragmentCreateArea;
+import org.climbingguide.gui.FragmentCreateRoute;
+import org.climbingguide.gui.FragmentCreateSector;
 import org.climbingguide.gui.FragmentRoutes;
 import org.climbingguide.gui.FragmentRoutesAll;
 import org.climbingguide.gui.FragmentSectors;
@@ -45,7 +47,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 	private DrawerLayout mDrawerLayout;
 	private ListView mDrawerList;
 	private ActionBarDrawerToggle mDrawerToggle;
-	private String[] current = new String[2];
 	
 	//menu item
 	private SearchView mSearchView;
@@ -222,9 +223,7 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		FragmentRoutes route = (FragmentRoutes)getFragmentManager().findFragmentByTag("Routes");
 
 		if(areaAll != null && areaAll.isVisible()){
-			
-				current[0] = "area";
-				current[1] = "-1";
+
 				SearchAreas fragment = new SearchAreas();
 				fragment.setArguments(bundle);
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -239,9 +238,7 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		}	
 		else
 		if(sectorAll != null && sectorAll.isVisible()){	
-			
-			current[0] = "sector";
-			current[1] = "-1";
+
 				SearchSectors fragment = new SearchSectors();
 				bundle.putInt("idOfArea",-1);
 				fragment.setArguments(bundle);
@@ -257,8 +254,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		else
 		if(routeAll != null && routeAll.isVisible()){	
 
-				current[0] = "route";
-				current[1] = "-1";
 				SearchRoutes fragment = new SearchRoutes();
 				bundle.putInt("idOfSector",-1);
 				fragment.setArguments(bundle);
@@ -273,9 +268,7 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		}
 		else
 		if(sector != null && sector.isVisible()){
-			
-				current[0] = "sector";
-				current[1] = (""+sector.getIdOfArea());
+
 				SearchSectors fragment = new SearchSectors();
 				bundle.putInt("idOfArea",sector.getIdOfArea());
 				fragment.setArguments(bundle);
@@ -290,9 +283,7 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		}
 		else
 		if(route != null && route.isVisible() ){
-			
-				current[0] = "route";
-				current[1] = (""+route.getIdOfSector());
+
 				SearchRoutes fragment = new SearchRoutes();
 				bundle.putInt("idOfSector",route.getIdOfSector());
 				fragment.setArguments(bundle);
@@ -302,8 +293,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 				transaction.addToBackStack(null);
 				
 				transaction.commit();
-
-			
 		}
 		
 		Log.i(LOG,"TagFragmentt = "+tagFragment);	
@@ -354,9 +343,56 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 			tagFragment = "RoutesAll";
 			break;
 		case 3:
-			fragment = new FragmentCreate(current);
-			tagFragment = "Create";
-			break;
+			Bundle bundle = new Bundle();
+			FragmentAreasAll areaAll = (FragmentAreasAll)getFragmentManager().findFragmentByTag("AreasAll");
+			FragmentSectorsAll sectorAll = (FragmentSectorsAll)getFragmentManager().findFragmentByTag("SectorsAll");
+			FragmentRoutesAll routeAll = (FragmentRoutesAll)getFragmentManager().findFragmentByTag("RoutesAll");
+			
+			FragmentSectors sector = (FragmentSectors)getFragmentManager().findFragmentByTag("Sectors");
+			FragmentRoutes route = (FragmentRoutes)getFragmentManager().findFragmentByTag("Routes");
+			
+			if(areaAll != null && areaAll.isVisible()){
+				fragment = new FragmentCreateArea();
+				tagFragment = "CreateArea";
+				break;
+			}	
+			else
+			if(sectorAll != null && sectorAll.isVisible()){	
+				fragment = new FragmentCreateSector();
+				fragment.setArguments(bundle);
+				tagFragment = "CreateSector";
+				break;
+			}
+			else
+			if(routeAll != null && routeAll.isVisible()){
+				fragment = new FragmentCreateRoute();
+				fragment.setArguments(bundle);
+				tagFragment = "CreateRoute";
+				break;
+	
+			
+			}
+			else
+			if(sector != null && sector.isVisible()){
+				fragment = new FragmentCreateSector();
+				bundle.putInt("idOfArea", sector.getIdOfArea());
+				fragment.setArguments(bundle);
+				tagFragment = "CreateSector";
+				break;
+	
+				
+			}
+			else
+			if(route != null && route.isVisible() ){
+				fragment = new FragmentCreateRoute();
+				bundle.putInt("idOfSector", route.getIdOfSector());
+				fragment.setArguments(bundle);
+				tagFragment = "CreateSector";
+				break;
+			}
+//			fragment = new FragmentCreateRoute();
+//			tagFragment = "Create";
+//			break;
 //		case 4:
 //			fragment = new ();
 //			break;
