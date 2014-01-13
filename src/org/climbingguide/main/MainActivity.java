@@ -40,6 +40,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 
 public class MainActivity extends Activity implements SearchView.OnQueryTextListener {
@@ -358,16 +359,12 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 			}	
 			else
 			if(sectorAll != null && sectorAll.isVisible()){	
-				fragment = new FragmentCreateSector();
-				fragment.setArguments(bundle);
-				tagFragment = "CreateSector";
+				Toast.makeText(getApplicationContext(), "Najprv vyber oblast", Toast.LENGTH_LONG).show();
 				break;
 			}
 			else
 			if(routeAll != null && routeAll.isVisible()){
-				fragment = new FragmentCreateRoute();
-				fragment.setArguments(bundle);
-				tagFragment = "CreateRoute";
+				Toast.makeText(getApplicationContext(), "Najprv vyber sektor", Toast.LENGTH_LONG).show();
 				break;
 	
 			
@@ -408,7 +405,7 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 
 			FragmentManager fragmentManager = getFragmentManager();
 			fragmentManager.beginTransaction()
-					.replace(R.id.frame_container, fragment,tagFragment).commit();
+					.replace(R.id.frame_container, fragment,tagFragment).addToBackStack(null).commit();
 
 			// update selected item and title, then close the drawer
 			mDrawerList.setItemChecked(position, true);

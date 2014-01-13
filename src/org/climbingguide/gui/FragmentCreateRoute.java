@@ -17,14 +17,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 public class FragmentCreateRoute extends Fragment{
-	public int sector;
-//	switch(creating){
-//		case "area":
-//			;
-//			
-//		default:
-//			break;
-//	}
+	public int id;
+	
 	
 	@Override
 	  public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -66,10 +60,9 @@ public class FragmentCreateRoute extends Fragment{
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}
-		
-		    	
+
 		    	try {
-					v1.setText( sector);
+					v1.setText( id);
 					v3.setText((CharSequence) json.get("difficulty"));
 					v4.setText((CharSequence) json.get("bolts"));
 					v5.setText((CharSequence) json.get("length"));
@@ -78,7 +71,6 @@ public class FragmentCreateRoute extends Fragment{
 					e.printStackTrace();
 				}
 		    	
-		 		
 		     }
 		};
 		
