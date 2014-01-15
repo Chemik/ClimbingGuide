@@ -2,9 +2,13 @@ package org.climbingguide.gui;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import org.climbingguide.dao.SectorDao;
 import org.climbingguide.main.R;
+import org.climbingguide.model.Sector;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
@@ -23,13 +27,20 @@ public class FragmentCreateRoute extends Fragment{
 	@Override
 	  public View onCreateView(LayoutInflater inflater, ViewGroup container,
 	      Bundle savedInstanceState) {
-		getActivity().setTitle("Create");
+		getActivity().setTitle("CreateRoute");
 		View view = inflater.inflate(R.layout.create_route,container, false);
-		
+		int i = getArguments().getInt("idOfSector");
 		Button b1 = (Button) view.findViewById(R.id.button1);
 		
+		SectorDao dao = new SectorDao(getActivity());
+		dao.open();
+		List<Sector> sectorList = dao.getAllSectors();
+		dao.close();
+		
 		b1.setOnClickListener(onClickListener);
-
+		EditText e2   = (EditText)view.findViewById(R.id.editText2);
+		e2.setText(sectorList.get(i).getName());
+		e2.setClickable(false);
 		return view;
 	}
 		
@@ -37,7 +48,7 @@ public class FragmentCreateRoute extends Fragment{
 		     @Override
 		     public void onClick(final View v) {
 				EditText e1   = (EditText)v.findViewById(R.id.editText1);
-		 		EditText e2   = (EditText)v.findViewById(R.id.editText2);
+		 		
 //		 		e2.setText(text);
 				EditText e3   = (EditText)v.findViewById(R.id.editText3);
 				EditText e4   = (EditText)v.findViewById(R.id.editText4);
@@ -53,7 +64,7 @@ public class FragmentCreateRoute extends Fragment{
 				
 		 		try {
 					json.put("route_name", e1.getText().toString());
-					json.put("sector", e2.getText().toString());
+					//json.put("sector", e2.getText().toString());
 					json.put("difficulty", e3.getText().toString());
 					json.put("bolts", e4.getText().toString());
 					json.put("length", e5.getText().toString());

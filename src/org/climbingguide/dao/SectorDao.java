@@ -153,4 +153,22 @@ public class SectorDao {
 		return sectorList;
 		
 	}
+	
+	public Sector getSectorById(int id){
+		String selectQuery = " SELECT * FROM " + SQLHelper.TABLE_SECTOR + " WHERE "+SQLHelper.ID_OF_AREA + " = " + "'"+ id +"'" ;
+		Log.i(LOG, selectQuery);
+		
+		Cursor c = db.rawQuery(selectQuery,null);
+		
+		Sector sector = new Sector();
+				
+		sector.setId(c.getInt(c.getColumnIndex(SQLHelper.ID_SECTOR)));
+		sector.setName(c.getString(c.getColumnIndex(SQLHelper.SECTOR_NAME)));
+		sector.setIdOfArea(c.getInt(c.getColumnIndex(SQLHelper.ID_OF_AREA)));
+		
+		
+		return sector;
+		
+		
+	}
 }

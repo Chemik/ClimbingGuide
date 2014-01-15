@@ -226,7 +226,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(areaAll != null && areaAll.isVisible()){
 
 				SearchAreas fragment = new SearchAreas();
-				fragment.setArguments(bundle);
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				tagFragment = "AreasSearch";
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -241,8 +240,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(sectorAll != null && sectorAll.isVisible()){	
 
 				SearchSectors fragment = new SearchSectors();
-				bundle.putInt("idOfArea",-1);
-				fragment.setArguments(bundle);
 				tagFragment="SectorsSearch";
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -256,8 +253,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(routeAll != null && routeAll.isVisible()){	
 
 				SearchRoutes fragment = new SearchRoutes();
-				bundle.putInt("idOfSector",-1);
-				fragment.setArguments(bundle);
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				tagFragment="RoutesSearch";
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -271,8 +266,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(sector != null && sector.isVisible()){
 
 				SearchSectors fragment = new SearchSectors();
-				bundle.putInt("idOfArea",sector.getIdOfArea());
-				fragment.setArguments(bundle);
 				tagFragment = "SectorsSearch";
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -286,8 +279,6 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(route != null && route.isVisible() ){
 
 				SearchRoutes fragment = new SearchRoutes();
-				bundle.putInt("idOfSector",route.getIdOfSector());
-				fragment.setArguments(bundle);
 				tagFragment = "RoutesSearch";
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
