@@ -226,6 +226,7 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(areaAll != null && areaAll.isVisible()){
 
 				SearchAreas fragment = new SearchAreas();
+				fragment.setArguments(bundle);
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				tagFragment = "AreasSearch";
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -240,6 +241,8 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(sectorAll != null && sectorAll.isVisible()){	
 
 				SearchSectors fragment = new SearchSectors();
+				fragment.setArguments(bundle);
+				bundle.putInt("idOfArea",-1);
 				tagFragment="SectorsSearch";
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -253,6 +256,8 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(routeAll != null && routeAll.isVisible()){	
 
 				SearchRoutes fragment = new SearchRoutes();
+				fragment.setArguments(bundle);
+				bundle.putInt("idOfSector",-1);
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				tagFragment="RoutesSearch";
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -266,6 +271,8 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(sector != null && sector.isVisible()){
 
 				SearchSectors fragment = new SearchSectors();
+				fragment.setArguments(bundle);
+				bundle.putInt("idOfArea",sector.getIdOfArea());
 				tagFragment = "SectorsSearch";
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -279,6 +286,8 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		if(route != null && route.isVisible() ){
 
 				SearchRoutes fragment = new SearchRoutes();
+				fragment.setArguments(bundle);
+				bundle.putInt("idOfSector",route.getIdOfSector());
 				tagFragment = "RoutesSearch";
 				FragmentTransaction transaction = getFragmentManager().beginTransaction();
 				transaction.replace(R.id.frame_container, fragment,tagFragment);
@@ -324,6 +333,7 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		switch (position) {
 		case 0:
 			fragment = new FragmentAreasAll();
+			
 			tagFragment = "AreasAll";
 			break;
 		case 1:
@@ -375,15 +385,15 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 				fragment = new FragmentCreateRoute();
 				bundle.putInt("idOfSector", route.getIdOfSector());
 				fragment.setArguments(bundle);
-				tagFragment = "CreateSector";
+				tagFragment = "CreateRoute";
 				break;
 			}
-//			fragment = new FragmentCreateRoute();
-//			tagFragment = "Create";
-//			break;
-//		case 4:
-//			fragment = new ();
-//			break;
+		case 4:
+			Update update = new Update();
+			update.updateA(getApplicationContext());
+			update.updateS(getApplicationContext());
+			update.updateR(getApplicationContext());
+			break;
 //		case 5:
 //			fragment = new ();
 //			break;

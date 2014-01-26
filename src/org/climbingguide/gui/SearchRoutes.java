@@ -19,6 +19,7 @@ public class SearchRoutes extends ListFragment{
 	private RouteDao  getRoutes;
 	private List<Route> routeList = new ArrayList<Route>();
 	private Route route = new Route();
+	int idOfSector;
 	
 	  @Override
 	  public void onActivityCreated(Bundle savedInstanceState) {
@@ -27,7 +28,7 @@ public class SearchRoutes extends ListFragment{
 	    
 	    getRoutes = new RouteDao(getActivity());  	
 	    String query = getArguments().getString("query");
-	    int idOfSector = getArguments().getInt("idOfSector");
+	    idOfSector = getArguments().getInt("idOfSector");
 	    
 	    getRoutes.open();
 		if(idOfSector >= 0)
@@ -78,14 +79,20 @@ public class SearchRoutes extends ListFragment{
 	  public int getIdOfSector()
 	  {
 		  int i;
-		  if(routeList.isEmpty())
+		  if(idOfSector >= 0)
 		  {
-			  i = -1;
+			  i = idOfSector;
 		  }
 		  else
 		  {
-			  route = routeList.get(0);
-			  i = route.getIdOfSector();
+			  if(routeList.isEmpty())
+			  {
+				  i = -1;
+			  }
+			  else{
+				  route = routeList.get(0);
+				  i = route.getIdOfSector();
+			  }
 		  }
 		 return i;
 	  }

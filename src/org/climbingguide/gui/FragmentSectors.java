@@ -19,16 +19,15 @@ public class FragmentSectors extends ListFragment{
 	private SectorDao  getSectors;
 	private List<Sector> sectorList = new ArrayList<Sector>();
 	private Sector sector = new Sector();
+	private int idOfArea;
 	  @Override
 	  public void onActivityCreated(Bundle savedInstanceState) {
 	    super.onActivityCreated(savedInstanceState);
 	    getActivity().setTitle("Sectors");
 	    
 	    getSectors = new SectorDao(getActivity());  	
-	    int idOfArea = getArguments().getInt("idOfArea");
+	    idOfArea = getArguments().getInt("idOfArea");
 
-	   
-	    
 	    getSectors.open();
 
 	    sectorList = getSectors.getSector(idOfArea); //get by area
@@ -64,17 +63,17 @@ public class FragmentSectors extends ListFragment{
 	  
 	  public int getIdOfArea()
 	  {
-		  int i;
-		  if(sectorList.isEmpty())
-		  {
-			  i = -1;
-		  }
-		  else{
-			  sector = sectorList.get(0);
-		  
-			  i = sector.getIdOfArea();
-		  }
-		  return i;
+//		  int i;
+//		  if(sectorList.isEmpty())
+//		  {
+//			  i = -1;
+//		  }
+//		  else{
+//			  sector = sectorList.get(0);
+//		  
+//			  i = sector.getIdOfArea();
+//		  }
+		  return idOfArea;
 	  }
 	
 }

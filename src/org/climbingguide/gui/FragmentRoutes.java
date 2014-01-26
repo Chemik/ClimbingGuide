@@ -23,14 +23,14 @@ public class FragmentRoutes extends ListFragment{
 	private RouteDao  getRoutes;
 	private List<Route> routeList = new ArrayList<Route>();
 	private Route route = new Route();
-	
+	private int idOfSector;
 	  @Override
 	  public void onActivityCreated(Bundle savedInstanceState) {
 	    super.onActivityCreated(savedInstanceState);
 	    getActivity().setTitle("Routes");
 	    
 	    getRoutes = new RouteDao(getActivity());  	
-	    int idOfSector = getArguments().getInt("idOfSector");
+	    idOfSector = getArguments().getInt("idOfSector");
 	    
 
 		
@@ -78,16 +78,16 @@ public class FragmentRoutes extends ListFragment{
 	
 	  public int getIdOfSector()
 	  {
-		  int i;
-		  if(routeList.isEmpty())
-		  {
-			  i = -1;
-		  }
-		  else
-		  {
-			  route = routeList.get(0);
-			  i = route.getIdOfSector();
-		  }
-		 return i;
+//		  int i;
+//		  if(routeList.isEmpty())
+//		  {
+//			  i = -1;
+//		  }
+//		  else
+//		  {
+//			  route = routeList.get(0);
+//			  i = route.getIdOfSector();
+//		  }
+		 return idOfSector;
 	  }
 }

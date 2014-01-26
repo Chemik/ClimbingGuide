@@ -19,6 +19,8 @@ public class SearchSectors extends ListFragment{
 	private SectorDao  getSectors;
 	private List<Sector> sectorList = new ArrayList<Sector>();
 	private Sector sector = new Sector();
+	private int idOfArea;
+	
 	  @Override
 	  public void onActivityCreated(Bundle savedInstanceState) {
 	    super.onActivityCreated(savedInstanceState);
@@ -26,7 +28,7 @@ public class SearchSectors extends ListFragment{
 	    
 	    getSectors = new SectorDao(getActivity());
 	    String query = getArguments().getString("query");
-	    int idOfArea = getArguments().getInt("idOfArea");
+	    idOfArea = getArguments().getInt("idOfArea");
 
 	    getSectors.open();
 	    if(idOfArea >= 0)
@@ -69,14 +71,19 @@ public class SearchSectors extends ListFragment{
 	  public int getIdOfArea()
 	  {
 		  int i;
-		  if(sectorList.isEmpty())
+		  if(idOfArea >= 0)
 		  {
-			  i = -1;
+			  i = idOfArea;
 		  }
 		  else{
-			  sector = sectorList.get(0);
-		  
-			  i = sector.getIdOfArea();
+			  if(sectorList.isEmpty())
+			  {
+				  i = -1;
+			  }else{
+			  
+				  sector = sectorList.get(0);
+			  		i = sector.getIdOfArea();
+			  }
 		  }
 		  return i;
 	  }
