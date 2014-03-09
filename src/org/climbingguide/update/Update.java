@@ -67,7 +67,8 @@ public class Update {
 		daoa.open();
 		List <Area> listOfAreas = daoa.getAllAreas();		
 		daoa.close();
-		 
+		int f=0; 
+		
 		String primeAreas = readFeedFrom("http://climbingguide.madzik.sk/areas.php");
 		
 		try {
@@ -76,12 +77,22 @@ public class Update {
 			arrayAreas = areas.getJSONArray("areas");
 			int i =0;
 			if(listOfAreas.size()<arrayAreas.length()){
-				for(i=listOfAreas.size();i<arrayAreas.length();i++){
-					
+				for(i=0;i<arrayAreas.length();i++){
 					JSONObject HTTPArea = new JSONObject();
 					HTTPArea = arrayAreas.getJSONObject(i);
-					area.updateArea(HTTPArea.getInt("id_area"), HTTPArea.getString("area_name"), context);
+					for(int j=0;j<listOfAreas.size();j++){
+						if(HTTPArea.getInt("id_area")==listOfAreas.get(j).getId()){
+							f=1;
+						}
+					}
+					if(f==0){
+						area.updateArea(HTTPArea.getInt("id_area"), HTTPArea.getString("area_name"), context);
+					}
+					else{
+						f=0;
+					}
 				}
+				Toast.makeText(context, "Your areas was updated", Toast.LENGTH_LONG).show();
 			}
 			else{
 				Toast.makeText(context, "Your areas are up to date", Toast.LENGTH_LONG).show();
@@ -110,7 +121,8 @@ public class Update {
 		daoa.open();
 		List <Sector> listOfSectors = daoa.getAllSectors();		
 		daoa.close();
-		 
+		int f=0;
+		
 		String primeSectors = readFeedFrom("http://climbingguide.madzik.sk/sectors.php");
 		
 		try {
@@ -123,7 +135,17 @@ public class Update {
 					
 					JSONObject HTTPSector = new JSONObject();
 					HTTPSector = arraySectors.getJSONObject(i);
-					sector.updateSector(HTTPSector.getInt("id_sector"), HTTPSector.getString("sector_name"), HTTPSector.getInt("id_of_area"), context);
+					for(int j=0;j<listOfSectors.size();j++){
+						if(HTTPSector.getInt("id_sector")==listOfSectors.get(j).getId()){
+							f=1;
+						}
+					}
+					if(f==0){
+						sector.updateSector(HTTPSector.getInt("id_sector"), HTTPSector.getString("sector_name"), HTTPSector.getInt("id_of_area"), context);
+					}
+					else{
+						f=0;
+					}
 				}
 			}
 			else{
@@ -166,12 +188,23 @@ public class Update {
 			JSONArray arrayRoutes = new JSONArray();
 			arrayRoutes = routes.getJSONArray("routes");
 			int i =0;
+			int f=0;
 			if(listOfRoutes.size()<arrayRoutes.length()){
 				for(i=listOfRoutes.size();i<arrayRoutes.length();i++){
 					
 					JSONObject HTTPRoute = new JSONObject();
 					HTTPRoute = arrayRoutes.getJSONObject(i);
-					route.updateRoute(HTTPRoute.getInt("id_route"), HTTPRoute.getString("route_name"), HTTPRoute.getInt("id_of_sector"), HTTPRoute.getString("difficulty"), HTTPRoute.getInt("bolts"), HTTPRoute.getInt("length"), 48.9947059, 21.2347516, context);
+					for(int j=0;j<listOfRoutes.size();j++){
+						if(HTTPRoute.getInt("id_route")==listOfRoutes.get(j).getId()){
+							f=1;
+						}
+					}
+					if(f==0){
+						route.updateRoute(HTTPRoute.getInt("id_route"), HTTPRoute.getString("route_name"), HTTPRoute.getInt("id_of_sector"), HTTPRoute.getString("difficulty"), HTTPRoute.getInt("bolts"), HTTPRoute.getInt("length"), 48.9947059, 21.2347516, context);
+					}
+					else{
+						f=0;
+					}
 				}
 			}
 			else{

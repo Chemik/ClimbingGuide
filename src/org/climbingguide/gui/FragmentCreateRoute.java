@@ -73,9 +73,14 @@ public class FragmentCreateRoute extends Fragment{
 		List<Sector> sectorList = dao.getAllSectors();
 		dao.close();
 		
+		for(int j=0;j<sectorList.size();j++){
+			if(sectorList.get(j).getId()==i){
+				e2.setText(sectorList.get(j).getName());
+			}
+		}
+		
 		b1.setOnClickListener(onClickListener);
 		EditText e2   = (EditText)view.findViewById(R.id.editText2);
-		e2.setText(sectorList.get(i-1).getName());
 		e2.setEnabled(false);
 		return view;
 	}
@@ -90,7 +95,7 @@ public class FragmentCreateRoute extends Fragment{
 				
 		 		try {
 					json.put("route_name", e1.getText());
-					json.put("id_of_sector", (i-1));
+					json.put("id_of_sector", (i));
 					json.put("difficulty", e3.getText());
 					json.put("bolts", e4.getText());
 					json.put("length", e5.getText());
@@ -129,7 +134,6 @@ public class FragmentCreateRoute extends Fragment{
 					e.printStackTrace();
 				}
 				v6.setText(resp.toString());
-		    	
 		     }
 		};
 		

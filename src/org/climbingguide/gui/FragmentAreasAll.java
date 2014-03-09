@@ -10,6 +10,7 @@ import org.climbingguide.model.Area;
 import android.os.Bundle;
 import android.app.FragmentTransaction;
 import android.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -46,6 +47,7 @@ public class FragmentAreasAll extends ListFragment{
 		  	Bundle bundle = new Bundle();
 
 		  	area = areaList.get(position);
+		  	Log.i(null, Integer.toString(area.getId()));
 		  	
 		  	bundle.putInt("idOfArea",area.getId());
 			FragmentSectors fragobj = new FragmentSectors();

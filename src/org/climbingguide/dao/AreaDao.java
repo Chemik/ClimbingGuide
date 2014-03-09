@@ -60,7 +60,7 @@ public class AreaDao {
 	public void addArea(Area area){
 		ContentValues value = new ContentValues();
 		
-		//value.put(SQLHelper.ID_AREA ,area.getId());
+		value.put(SQLHelper.ID_AREA ,area.getId());
 		value.put(SQLHelper.AREA_NAME,area.getName());
 		
 		Log.i(LOG,"Inster to table area -->" + value);

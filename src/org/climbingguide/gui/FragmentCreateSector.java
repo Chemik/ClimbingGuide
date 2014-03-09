@@ -23,6 +23,7 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,19 +56,18 @@ public class FragmentCreateSector extends Fragment{
 		dao.open();
 		List<Area> areaList = dao.getAllAreas();
 		dao.close();
+		e2 = (EditText)view.findViewById(R.id.editText2);
+		
+		for(int j=0;j<areaList.size();j++){
+			if(areaList.get(j).getId()==i){
+				e2.setText(areaList.get(j).getName());
+			}
+		}
 		
 		b1.setOnClickListener(onClickListener);
     	e1 = (EditText)view.findViewById(R.id.editText1);
-		e2 = (EditText)view.findViewById(R.id.editText2);
 		t1 = (TextView)view.findViewById(R.id.textView1);
-		e2.setText(areaList.get(i-1).getName());
 		e2.setEnabled(false);
-		try {
-			json.put("id_area", (i-1));
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		return view;
 	}
 	
@@ -79,7 +79,7 @@ public class FragmentCreateSector extends Fragment{
 			
 			try {
 				json.put("sector_name", e1.getText());
-				json.put("id_of_area", (i-1));
+				json.put("id_of_area", (i));
 			} catch (JSONException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

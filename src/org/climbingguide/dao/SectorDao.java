@@ -86,6 +86,7 @@ public class SectorDao {
 		
 		ContentValues value = new ContentValues();
 
+		value.put(SQLHelper.ID_SECTOR, sector.getId());
 		value.put(SQLHelper.SECTOR_NAME,sector.getName());
 		value.put(SQLHelper.ID_OF_AREA,sector.getIdOfArea());
 		
