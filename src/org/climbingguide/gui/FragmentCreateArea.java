@@ -18,6 +18,8 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.LayoutInflater;
@@ -30,7 +32,6 @@ import android.widget.EditText;
 
 @SuppressLint("ValidFragment")
 public class FragmentCreateArea extends Fragment{
-	
 	
 	JSONObject json = new JSONObject();
 	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();

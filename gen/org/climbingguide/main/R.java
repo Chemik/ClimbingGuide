@@ -46,10 +46,11 @@ public final class R {
         public static final int ic_pages=0x7f02000a;
         public static final int ic_routes=0x7f02000b;
         public static final int ic_sectors=0x7f02000c;
-        public static final int ic_whats_hot=0x7f02000d;
-        public static final int list_item_bg_normal=0x7f02000e;
-        public static final int list_item_bg_pressed=0x7f02000f;
-        public static final int list_selector=0x7f020010;
+        public static final int ic_update=0x7f02000d;
+        public static final int ic_whats_hot=0x7f02000e;
+        public static final int list_item_bg_normal=0x7f02000f;
+        public static final int list_item_bg_pressed=0x7f020010;
+        public static final int list_selector=0x7f020011;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0b0006;

@@ -49,7 +49,7 @@
         <item>@drawable/ic_sectors</item>
         <item>@drawable/ic_areas</item>
         <item>@drawable/ic_create</item>
-        <item>@drawable/ic_pages</item>
+        <item>@drawable/ic_update</item>
         <item>@drawable/ic_whats_hot</item>
     </array>
     
