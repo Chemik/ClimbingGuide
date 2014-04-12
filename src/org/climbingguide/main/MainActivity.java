@@ -25,8 +25,11 @@ import org.climbingguide.model.Sector;
 import org.climbingguide.update.Update;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.ActionBarDrawerToggle;
 import android.app.Fragment;
@@ -354,45 +357,69 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 			FragmentRoutes route = (FragmentRoutes)getFragmentManager().findFragmentByTag("Routes");
 			
 			if(areaAll != null && areaAll.isVisible()){
-				fragment = new FragmentCreateArea();
-				tagFragment = "CreateArea";
-				break;
+				ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+				NetworkInfo netInfo = cm.getActiveNetworkInfo();
+				if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+					fragment = new FragmentCreateArea();
+					tagFragment = "CreateArea";
+					break;
+				}else{
+			    	Toast.makeText(getApplicationContext(), "There is no network access", Toast.LENGTH_LONG).show();
+			    }
 			}	
 			else
 			if(sectorAll != null && sectorAll.isVisible()){	
-				Toast.makeText(getApplicationContext(), "Najprv vyber oblast", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "First select the area", Toast.LENGTH_LONG).show();
 				break;
 			}
 			else
 			if(routeAll != null && routeAll.isVisible()){
-				Toast.makeText(getApplicationContext(), "Najprv vyber sektor", Toast.LENGTH_LONG).show();
+				Toast.makeText(getApplicationContext(), "First select the sector", Toast.LENGTH_LONG).show();
 				break;
 	
 			
 			}
 			else
 			if(sector != null && sector.isVisible()){
-				fragment = new FragmentCreateSector();
-				bundle.putInt("idOfArea", sector.getIdOfArea());
-				fragment.setArguments(bundle);
-				tagFragment = "CreateSector";
-				break;
-	
+				ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+				NetworkInfo netInfo = cm.getActiveNetworkInfo();
+				if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+					fragment = new FragmentCreateSector();
+					bundle.putInt("idOfArea", sector.getIdOfArea());
+					fragment.setArguments(bundle);
+					tagFragment = "CreateSector";
+					break;
+				}else{
+			    	Toast.makeText(getApplicationContext(), "There is no network access", Toast.LENGTH_LONG).show();
+			    }
 				
 			}
 			else
 			if(route != null && route.isVisible() ){
-				fragment = new FragmentCreateRoute();
-				bundle.putInt("idOfSector", route.getIdOfSector());
-				fragment.setArguments(bundle);
-				tagFragment = "CreateRoute";
-				break;
+				ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+				NetworkInfo netInfo = cm.getActiveNetworkInfo();
+				if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+					fragment = new FragmentCreateRoute();
+					bundle.putInt("idOfSector", route.getIdOfSector());
+					fragment.setArguments(bundle);
+					tagFragment = "CreateRoute";
+					break;
+				}else{
+			    	Toast.makeText(getApplicationContext(), "There is no network access", Toast.LENGTH_LONG).show();
+			    }
 			}
 		case 4:
-			Update update = new Update();
-			update.updateA(getApplicationContext());
-			update.updateS(getApplicationContext());
-			update.updateR(getApplicationContext());
+			ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+			NetworkInfo netInfo = cm.getActiveNetworkInfo();
+			if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+		        Update update = new Update();
+		        update.updateA(getApplicationContext());
+		        update.updateS(getApplicationContext());
+		        update.updateR(getApplicationContext());
+		    }else{
+		    	Toast.makeText(getApplicationContext(), "There is no network access", Toast.LENGTH_LONG).show();
+		    }
+			
 			break;
 //		case 5:
 //			fragment = new ();
