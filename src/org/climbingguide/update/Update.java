@@ -120,17 +120,20 @@ public class Update {
 			JSONArray arraySectors = new JSONArray();
 			arraySectors = sectors.getJSONArray("sectors");
 			int i =0;
+			Log.i("sector update", "Size of database sectors: " +listOfSectors.size()+ " and size of downloaded sectors: " +arraySectors.length());
 			if(listOfSectors.size()<arraySectors.length()){
-				for(i=listOfSectors.size();i<arraySectors.length();i++){
+				for(i=0;i<arraySectors.length();i++){
 					
 					JSONObject HTTPSector = new JSONObject();
 					HTTPSector = arraySectors.getJSONObject(i);
 					for(int j=0;j<listOfSectors.size();j++){
 						if(HTTPSector.getInt("id_sector")==listOfSectors.get(j).getId()){
 							f=1;
+							Log.i("sector update", HTTPSector.toString());
 						}
 					}
 					if(f==0){
+						Log.i("sector update", "2");
 						sector.updateSector(HTTPSector.getInt("id_sector"), HTTPSector.getString("sector_name"), HTTPSector.getInt("id_of_area"), context);
 					}
 					else{
@@ -165,7 +168,7 @@ public class Update {
 			int i =0;
 			int f=0;
 			if(listOfRoutes.size()<arrayRoutes.length()){
-				for(i=listOfRoutes.size();i<arrayRoutes.length();i++){
+				for(i=0;i<arrayRoutes.length();i++){
 					
 					JSONObject HTTPRoute = new JSONObject();
 					HTTPRoute = arrayRoutes.getJSONObject(i);

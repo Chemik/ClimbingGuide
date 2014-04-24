@@ -52,8 +52,8 @@ public class FragmentRoute extends Fragment {
 			TextView difficultyView = (TextView) view.findViewById(R.id.textViewDifficulty);
 			TextView boltsView = (TextView) view.findViewById(R.id.textViewBolts);
 			TextView lengthView = (TextView) view.findViewById(R.id.textViewLength);
-			TextView latitudeView = (TextView) view.findViewById(R.id.textViewLatitude);
-			TextView longitudeView = (TextView) view.findViewById(R.id.textViewLongitude);
+//			TextView latitudeView = (TextView) view.findViewById(R.id.textViewLatitude);
+//			TextView longitudeView = (TextView) view.findViewById(R.id.textViewLongitude);
 		  
 			
 			nameView.setText("Name: "+name.toString());
@@ -62,8 +62,8 @@ public class FragmentRoute extends Fragment {
 			boltsView.setText("Bolts: "+bolts);
 			lengthView.setText("Length: "+length);
 			
-			latitudeView.setText("latitude: "+latitude);
-			longitudeView.setText("longitude: "+longitude);
+//			latitudeView.setText("latitude: "+latitude);
+//			longitudeView.setText("longitude: "+longitude);
 			
 		  return view;
 	  }

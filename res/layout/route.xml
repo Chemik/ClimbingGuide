@@ -19,16 +19,6 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/textViewLatitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewLength"
-        android:layout_below="@+id/textViewLength"
-        android:layout_marginTop="46dp"
-        android:text="@string/latitude_"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/textViewDifficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,16 +47,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
         android:text="@string/bolts_"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
-        android:id="@+id/textViewLongitude"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewLatitude"
-        android:layout_below="@+id/textViewLatitude"
-        android:layout_marginTop="20dp"
-        android:text="@string/longitude_"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

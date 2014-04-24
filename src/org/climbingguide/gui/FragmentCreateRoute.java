@@ -66,7 +66,6 @@ public class FragmentCreateRoute extends Fragment{
 		v3 = (TextView)view.findViewById(R.id.textView3);
 		v4 = (TextView)view.findViewById(R.id.textView4);
 		v5 = (TextView)view.findViewById(R.id.textView5);
-		v6 = (TextView)view.findViewById(R.id.textView6);
 		
 		SectorDao dao = new SectorDao(getActivity());
 		dao.open();

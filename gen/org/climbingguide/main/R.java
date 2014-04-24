@@ -47,17 +47,16 @@ public final class R {
         public static final int ic_routes=0x7f02000b;
         public static final int ic_sectors=0x7f02000c;
         public static final int ic_update=0x7f02000d;
-        public static final int ic_whats_hot=0x7f02000e;
-        public static final int list_item_bg_normal=0x7f02000f;
-        public static final int list_item_bg_pressed=0x7f020010;
-        public static final int list_selector=0x7f020011;
+        public static final int list_item_bg_normal=0x7f02000e;
+        public static final int list_item_bg_pressed=0x7f02000f;
+        public static final int list_selector=0x7f020010;
     }
     public static final class id {
         public static final int LinearLayout1=0x7f0b0006;
-        public static final int action_search=0x7f0b001a;
-        public static final int action_settings=0x7f0b001b;
+        public static final int action_search=0x7f0b0017;
+        public static final int action_settings=0x7f0b0018;
         public static final int button1=0x7f0b0005;
-        public static final int counter=0x7f0b0012;
+        public static final int counter=0x7f0b0011;
         public static final int drawer_layout=0x7f0b0000;
         public static final int editText1=0x7f0b0004;
         public static final int editText2=0x7f0b0008;
@@ -65,22 +64,19 @@ public final class R {
         public static final int editText4=0x7f0b000c;
         public static final int editText5=0x7f0b000e;
         public static final int frame_container=0x7f0b0001;
-        public static final int icon=0x7f0b0010;
-        public static final int listView1=0x7f0b0013;
+        public static final int icon=0x7f0b000f;
+        public static final int listView1=0x7f0b0012;
         public static final int list_slidermenu=0x7f0b0002;
         public static final int textView1=0x7f0b0003;
         public static final int textView2=0x7f0b0007;
         public static final int textView3=0x7f0b0009;
         public static final int textView4=0x7f0b000b;
         public static final int textView5=0x7f0b000d;
-        public static final int textView6=0x7f0b000f;
-        public static final int textViewBolts=0x7f0b0018;
-        public static final int textViewDifficulty=0x7f0b0017;
-        public static final int textViewLatitude=0x7f0b0015;
+        public static final int textViewBolts=0x7f0b0015;
+        public static final int textViewDifficulty=0x7f0b0014;
         public static final int textViewLength=0x7f0b0016;
-        public static final int textViewLongitude=0x7f0b0019;
-        public static final int textViewName=0x7f0b0014;
-        public static final int title=0x7f0b0011;
+        public static final int textViewName=0x7f0b0013;
+        public static final int title=0x7f0b0010;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
