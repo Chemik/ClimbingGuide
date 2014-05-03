@@ -27,6 +27,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class FragmentCreateRoute extends Fragment{
 	public int id;
@@ -117,6 +118,7 @@ public class FragmentCreateRoute extends Fragment{
 				HttpPost post = new HttpPost("http://climbingguide.madzik.sk/route.php");
 				try {
 					post.setEntity(new StringEntity(json2.toString(), CODEPAGE));
+					Toast.makeText( null, "Zaznam bol odoslany na spracovanie", Toast.LENGTH_LONG).show();
 				} catch (UnsupportedEncodingException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

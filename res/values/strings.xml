@@ -21,18 +21,18 @@
     <string name="action_update">Update</string>
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
-    <string name="newRoute">Vytvorit novu cestu</string>
-    <string name="newArea">Vytvorit novu oblast</string>
-    <string name="newSector">Vytvorit novy sektor</string>
-    <string name="routeName">Meno cesty:</string>
-    <string name="routeSector">Umiestnenie v sektore:</string>
-    <string name="routeDiff">Obtiaznost cesty:</string>
-    <string name="routeLength">Dlzka cesty (v metroch):</string>
-    <string name="routeBolts">Pocet isteni v ceste:</string>
-    <string name="send">Odoslat</string>
-    <string name="sectorName">Nazov sektora</string>
-    <string name="sectorArea">Umiestnenie v oblasti</string>
-    <string name="areaName">Nazov oblasti</string>
+    <string name="newRoute">Create new route</string>
+    <string name="newArea">Create new area</string>
+    <string name="newSector">Create new sector</string>
+    <string name="routeName">Route name:</string>
+    <string name="routeSector">In sector:</string>
+    <string name="routeDiff">Difficulty of route:</string>
+    <string name="routeLength">Length of route:</string>
+    <string name="routeBolts">Number of bolts:</string>
+    <string name="send">Send</string>
+    <string name="sectorName">Sector name</string>
+    <string name="sectorArea">In area</string>
+    <string name="areaName">Area name</string>
 
     
     <string-array name="nav_drawer_items">

@@ -26,6 +26,7 @@ import org.climbingguide.update.Update;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.TypedArray;
 import android.net.ConnectivityManager;
@@ -416,6 +417,9 @@ public class MainActivity extends Activity implements SearchView.OnQueryTextList
 		        update.updateA(getApplicationContext());
 		        update.updateS(getApplicationContext());
 		        update.updateR(getApplicationContext());
+		        Intent intent = getIntent();
+		        finish();
+		        startActivity(intent);
 		    }else{
 		    	Toast.makeText(getApplicationContext(), "There is no network access", Toast.LENGTH_LONG).show();
 		    }
