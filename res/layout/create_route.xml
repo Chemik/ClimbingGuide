@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text" />
+        android:inputType="textCapSentences" />
 
     <TextView
         android:id="@+id/textView2"
@@ -41,7 +41,8 @@
         android:id="@+id/editText3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:ems="10"/>"
+        android:ems="10"
+        android:inputType="text" />"
 
     <TextView
         android:id="@+id/textView4"

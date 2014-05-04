@@ -20,6 +20,7 @@ import org.json.JSONObject;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -92,6 +93,10 @@ public class FragmentCreateRoute extends Fragment{
 		    	StrictMode.setThreadPolicy(policy);
 		 		JSONObject json = new JSONObject();
 		 		JSONArray array = new JSONArray();
+		 		final String CODEPAGE = "UTF-8";
+				HttpPost post = new HttpPost("http://climbingguide.madzik.sk/route.php");
+				HttpResponse resp = null;
+				HttpClient httpclient = new DefaultHttpClient();	
 				
 		 		try {
 					json.put("route_name", e1.getText());
@@ -103,7 +108,7 @@ public class FragmentCreateRoute extends Fragment{
 				} catch (JSONException e) {
 		 			e.printStackTrace();
 				}
-
+		 		
 		    	array.put(json);
 		    	JSONObject json2 = new JSONObject();
 		    	try {
@@ -112,19 +117,14 @@ public class FragmentCreateRoute extends Fragment{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-		    	v6.setText(json2.toString());
 		    	
-		    	final String CODEPAGE = "UTF-8";
-				HttpPost post = new HttpPost("http://climbingguide.madzik.sk/route.php");
-				try {
+		    	try {
 					post.setEntity(new StringEntity(json2.toString(), CODEPAGE));
-					Toast.makeText( null, "Zaznam bol odoslany na spracovanie", Toast.LENGTH_LONG).show();
 				} catch (UnsupportedEncodingException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				HttpResponse resp = null;
-				HttpClient httpclient = new DefaultHttpClient();
+		    	
 				try {
 					resp = httpclient.execute(post);
 				} catch (ClientProtocolException e) {
@@ -134,7 +134,10 @@ public class FragmentCreateRoute extends Fragment{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				v6.setText(resp.toString());
+				e1.setText(null);
+				e3.setText(null);
+				e4.setText(null);
+				e5.setText(null);
 		     }
 		};
 		
