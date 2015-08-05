@@ -29,16 +29,6 @@
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/textViewLength"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textViewBolts"
-        android:layout_below="@+id/textViewBolts"
-        android:layout_marginTop="20dp"
-        android:text="@string/bolts_"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <TextView
         android:id="@+id/textViewBolts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -46,7 +36,37 @@
         android:layout_below="@+id/textViewDifficulty"
         android:layout_marginLeft="30dp"
         android:layout_marginTop="20dp"
+        android:text="@string/bolts_"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textViewLength"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewBolts"
+        android:layout_below="@+id/textViewBolts"
+        android:layout_marginTop="20dp"
         android:text="@string/length_"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textViewLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewBolts"
+        android:layout_below="@+id/textViewLength"
+        android:layout_marginTop="20dp"
+        android:text="@string/latitude"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/textViewLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textViewBolts"
+        android:layout_below="@+id/textViewLatitude"
+        android:layout_marginTop="20dp"
+        android:text="@string/longitude"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

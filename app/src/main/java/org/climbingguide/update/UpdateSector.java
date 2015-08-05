@@ -7,17 +7,16 @@ import android.content.Context;
 
 public class UpdateSector {
 
-	public void updateSector(int id, String name,int idOfArea,Context context)
-	{
-		Sector sector = new Sector();
-		
-		sector.setId(id);
-		sector.setName(name);
-		sector.setIdOfArea(idOfArea);
-		
-		SectorDao daos = new SectorDao(context);
-		daos.open();
-		daos.addSector(sector);
-		daos.close();
-	}
+    public void updateSector(int id, String name, int idOfArea, Context context) {
+        Sector sector = new Sector();
+
+        sector.setId(id);
+        sector.setName(name);
+        sector.setIdOfArea(idOfArea);
+
+        SectorDao daos = new SectorDao(context);
+        daos.open();
+        daos.addSector(sector);
+        daos.close();
+    }
 }

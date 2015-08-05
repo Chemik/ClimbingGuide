@@ -6,72 +6,72 @@
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/textViewRouteName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/routeName" />
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/editTextRouteName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textCapSentences" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textViewInSector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/routeSector" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextInSector"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="text" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textViewRouteDifficulty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/routeDiff" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editTextRouteDifficulty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text" />"
+        android:inputType="text" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textViewRouteLength"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/routeLength" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editTextRouteLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textViewBoltsCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/routeBolts" />
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/editTextBoltsCount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="number" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/buttonSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/send" />

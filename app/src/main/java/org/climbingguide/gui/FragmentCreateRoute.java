@@ -20,7 +20,6 @@ import org.json.JSONObject;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,119 +27,114 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-public class FragmentCreateRoute extends Fragment{
-	public int id;
-	EditText e1;
-	EditText e2;
-	EditText e3;
-	EditText e4;
-	EditText e5;
-	TextView v1;
-	TextView v2;
-	TextView v3;
-	TextView v4;
-	TextView v5;
-	TextView v6;
-	int i;
+public class FragmentCreateRoute extends Fragment {
+    public int id;
+    EditText eRouteName;
+    EditText eInSector;
+    EditText eRouteDifficulty;
+    EditText eRouteLength;
+    EditText eBoltsCount;
+    TextView vRouteName;
+    TextView vInSector;
+    TextView vRouteDifficulty;
+    TextView vRouteLength;
+    TextView vBoltsCount;
+    int m_sector_id;
 
-	StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
- 
-	
-	
-	@Override
-	  public View onCreateView(LayoutInflater inflater, ViewGroup container,
-	      Bundle savedInstanceState) {
-		
-		getActivity().setTitle("CreateRoute");
-		View view = inflater.inflate(R.layout.create_route,container, false);
-		Button b1 = (Button) view.findViewById(R.id.button1);
-		i = getArguments().getInt("idOfSector");
+    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
 
-		e1 = (EditText)view.findViewById(R.id.editText1);
-		e2 = (EditText)view.findViewById(R.id.editText2);
-		e3   = (EditText)view.findViewById(R.id.editText3);
-		e4   = (EditText)view.findViewById(R.id.editText4);
-		e5   = (EditText)view.findViewById(R.id.editText5);
-		v1 = (TextView)view.findViewById(R.id.textView1);
-		v2 = (TextView)view.findViewById(R.id.textView2);
-		v3 = (TextView)view.findViewById(R.id.textView3);
-		v4 = (TextView)view.findViewById(R.id.textView4);
-		v5 = (TextView)view.findViewById(R.id.textView5);
-		
-		SectorDao dao = new SectorDao(getActivity());
-		dao.open();
-		List<Sector> sectorList = dao.getAllSectors();
-		dao.close();
-		
-		for(int j=0;j<sectorList.size();j++){
-			if(sectorList.get(j).getId()==i){
-				e2.setText(sectorList.get(j).getName());
-			}
-		}
-		
-		b1.setOnClickListener(onClickListener);
-		EditText e2   = (EditText)view.findViewById(R.id.editText2);
-		e2.setEnabled(false);
-		return view;
-	}
-		
-		private OnClickListener onClickListener = new OnClickListener() {
-		     @Override
-		     public void onClick(final View v) {
-		    	 
-		    	StrictMode.setThreadPolicy(policy);
-		 		JSONObject json = new JSONObject();
-		 		JSONArray array = new JSONArray();
-		 		final String CODEPAGE = "UTF-8";
-				HttpPost post = new HttpPost("http://climbingguide.madzik.sk/route.php");
-				HttpResponse resp = null;
-				HttpClient httpclient = new DefaultHttpClient();	
-				
-		 		try {
-					json.put("route_name", e1.getText());
-					json.put("id_of_sector", (i));
-					json.put("difficulty", e3.getText());
-					json.put("bolts", e4.getText());
-					json.put("length", e5.getText());
-		 			
-				} catch (JSONException e) {
-		 			e.printStackTrace();
-				}
-		 		
-		    	array.put(json);
-		    	JSONObject json2 = new JSONObject();
-		    	try {
-					json2.put("routes", array);
-				} catch (JSONException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		    	
-		    	try {
-					post.setEntity(new StringEntity(json2.toString(), CODEPAGE));
-				} catch (UnsupportedEncodingException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-		    	
-				try {
-					resp = httpclient.execute(post);
-				} catch (ClientProtocolException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				e1.setText(null);
-				e3.setText(null);
-				e4.setText(null);
-				e5.setText(null);
-		     }
-		};
-		
-	}
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+
+        getActivity().setTitle("CreateRoute");
+        View view = inflater.inflate(R.layout.create_route, container, false);
+        Button bSend = (Button) view.findViewById(R.id.buttonSend);
+        m_sector_id = getArguments().getInt("idOfSector");
+
+        eRouteName = (EditText) view.findViewById(R.id.editTextRouteName);
+        eInSector = (EditText) view.findViewById(R.id.editTextInSector);
+        eRouteDifficulty = (EditText) view.findViewById(R.id.editTextRouteDifficulty);
+        eRouteLength = (EditText) view.findViewById(R.id.editTextRouteLength);
+        eBoltsCount = (EditText) view.findViewById(R.id.editTextBoltsCount);
+        vRouteName = (TextView) view.findViewById(R.id.textViewRouteName);
+        vInSector = (TextView) view.findViewById(R.id.textViewInSector);
+        vRouteDifficulty = (TextView) view.findViewById(R.id.textViewRouteDifficulty);
+        vRouteLength = (TextView) view.findViewById(R.id.textViewRouteLength);
+        vBoltsCount = (TextView) view.findViewById(R.id.textViewBoltsCount);
+
+        SectorDao dao = new SectorDao(getActivity());
+        dao.open();
+        List<Sector> sectorList = dao.getAllSectors();
+        dao.close();
+
+        for (int j = 0; j < sectorList.size(); j++) {
+            if (sectorList.get(j).getId() == m_sector_id) {
+                eInSector.setText(sectorList.get(j).getName());
+            }
+        }
+
+        bSend.setOnClickListener(onSendNewRoute);
+        eInSector.setEnabled(false);
+        return view;
+    }
+
+    private OnClickListener onSendNewRoute = new OnClickListener() {
+        @Override
+        public void onClick(final View v) {
+
+            StrictMode.setThreadPolicy(policy);
+            JSONObject json = new JSONObject();
+            JSONArray array = new JSONArray();
+            final String CODEPAGE = "UTF-8";
+            HttpPost post = new HttpPost("http://climbingguide.madzik.sk/route.php");
+            HttpResponse resp = null;
+            HttpClient httpclient = new DefaultHttpClient();
+
+            try {
+                json.put("route_name", eRouteName.getText());
+                json.put("id_of_sector", (m_sector_id));
+                json.put("difficulty", eRouteDifficulty.getText());
+                json.put("bolts", eRouteLength.getText());
+                json.put("length", eBoltsCount.getText());
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            array.put(json);
+            JSONObject json2 = new JSONObject();
+            try {
+                json2.put("routes", array);
+            } catch (JSONException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+            try {
+                post.setEntity(new StringEntity(json2.toString(), CODEPAGE));
+            } catch (UnsupportedEncodingException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+
+            try {
+                resp = httpclient.execute(post);
+            } catch (ClientProtocolException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            eRouteName.setText(null);
+            eRouteDifficulty.setText(null);
+            eRouteLength.setText(null);
+            eBoltsCount.setText(null);
+        }
+    };
+
+}
 
 
